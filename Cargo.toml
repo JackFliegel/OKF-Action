@@ -1,0 +1,17 @@
+[package]
+name = "okf-action"
+version = "0.1.0"
+edition = "2021"
+description = "GitHub Action for validating Open Knowledge Format (OKF) v0.1 bundles"
+license = "MIT"
+
+[[bin]]
+name = "okf-action"
+path = "src/main.rs"
+
+[dependencies]
+walkdir = "2"
+serde_yaml = "0.9"
+
+[dev-dependencies]
+tempfile = "3"

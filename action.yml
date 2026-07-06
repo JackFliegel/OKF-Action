@@ -1,0 +1,32 @@
+name: 'OKF Bundle Validator'
+description: 'Validates Open Knowledge Format (OKF) v0.1 bundles in a repository'
+author: 'JackFliegel'
+
+inputs:
+  bundle_path:
+    description: >
+      Path to the OKF bundle directory, relative to the repository root.
+      Defaults to the repository root (".").
+    required: false
+    default: '.'
+  repo:
+    description: >
+      External GitHub repository URL to clone and validate
+      (e.g. https://github.com/owner/repo).
+      When set, bundle_path is interpreted relative to the cloned repository root.
+    required: false
+    default: ''
+
+outputs:
+  files_checked:
+    description: 'Number of Markdown files checked'
+  error_count:
+    description: 'Number of OKF v0.1 conformance errors found'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'check-circle'
+  color: 'blue'

@@ -300,7 +300,6 @@ fn validate_log_md(path: &Path, rel_str: &str, report: &mut ValidationReport) {
 
 /// Returns `true` if `s` matches the pattern `YYYY-MM-DD` using only ASCII digits.
 fn is_iso_date(s: &str) -> bool {
-    let s = s.trim();
     if s.len() != 10 {
         return false;
     }

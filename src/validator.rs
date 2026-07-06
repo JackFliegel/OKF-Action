@@ -284,13 +284,12 @@ fn validate_log_md(path: &Path, rel_str: &str, report: &mut ValidationReport) {
     // Every level-2 heading must be an ISO 8601 date (YYYY-MM-DD).
     for line in content.lines() {
         if let Some(heading) = line.trim().strip_prefix("## ") {
-            let date_str = heading.trim();
-            if !is_iso_date(date_str) {
+            if !is_iso_date(heading) {
                 report.add_error(
                     rel_str,
                     format!(
                         "log.md date heading '{}' must be in ISO 8601 YYYY-MM-DD format (OKF v0.1 §7)",
-                        date_str
+                        heading
                     ),
                 );
             }
